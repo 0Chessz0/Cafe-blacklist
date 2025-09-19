@@ -1,0 +1,113 @@
+:root {
+    --radius: 8px;
+    
+    /* Dark theme colors */
+    --background: hsl(240, 10%, 6%);
+    --foreground: hsl(0, 0%, 95%);
+    --card: hsl(240, 6%, 10%);
+    --card-foreground: hsl(0, 0%, 95%);
+    --popover: hsl(240, 6%, 12%);
+    --popover-foreground: hsl(0, 0%, 95%);
+    --primary: hsl(262, 83%, 58%);
+    --primary-foreground: hsl(0, 0%, 95%);
+    --secondary: hsl(240, 6%, 15%);
+    --secondary-foreground: hsl(0, 0%, 95%);
+    --muted: hsl(240, 6%, 12%);
+    --muted-foreground: hsl(0, 0%, 65%);
+    --accent: hsl(193, 98%, 67%);
+    --accent-foreground: hsl(240, 10%, 6%);
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(0, 0%, 95%);
+    --border: hsl(240, 6%, 20%);
+    --input: hsl(240, 6%, 15%);
+    --ring: hsl(262, 83%, 58%);
+    
+    /* Neon colors */
+    --neon-cyan: hsl(193, 98%, 67%);
+    --neon-purple: hsl(262, 83%, 58%);
+    --neon-orange: hsl(25, 95%, 53%);
+    --neon-green: hsl(142, 71%, 45%);
+    --neon-red: hsl(0, 84%, 60%);
+    
+    /* Server specific colors */
+    --fluffy-accent: #a6e3ff;
+    --humble-accent: #ffcc80;
+}
+
+[data-theme="light"] {
+    --background: hsl(0, 0%, 98%);
+    --foreground: hsl(240, 10%, 10%);
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(240, 10%, 10%);
+    --popover: hsl(0, 0%, 100%);
+    --popover-foreground: hsl(240, 10%, 10%);
+    --primary: hsl(262, 83%, 58%);
+    --primary-foreground: hsl(0, 0%, 95%);
+    --secondary: hsl(240, 5%, 96%);
+    --secondary-foreground: hsl(240, 6%, 10%);
+    --muted: hsl(240, 5%, 96%);
+    --muted-foreground: hsl(240, 4%, 45%);
+    --accent: hsl(193, 98%, 67%);
+    --accent-foreground: hsl(240, 10%, 10%);
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(0, 0%, 95%);
+    --border: hsl(240, 6%, 88%);
+    --input: hsl(240, 6%, 90%);
+    --ring: hsl(262, 83%, 58%);
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background: var(--background);
+    color: var(--foreground);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--ring);
+}
+
+/* Theme transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+}
+
+/* Server-specific backgrounds */
+.server-fluffy {
+    background: linear-gradient(135deg, hsl(240, 10%, 8%), hsl(220, 50%, 15%));
+}
+
+.server-humble {
+    background: linear-gradient(135deg, hsl(30, 20%, 8%), hsl(30, 40%, 15%));
+}
+
+[data-theme="light"] .server-fluffy {
+    background: linear-gradient(135deg, hsl(220, 50%, 95%), hsl(220, 30%, 90%));
+}
+
+[data-theme="light"] .server-humble {
+    background: linear-gradient(135deg, hsl(30, 40%, 95%), hsl(30, 20%, 90%));
+}

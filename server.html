@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Server Blacklist</title>
+    <meta name="description" content="View blacklisted users and moderation history for this Discord server">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <div class="logo">
+                        <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 13.5v-3H9.5a.5.5 0 0 1 0-1H11V8.5a.5.5 0 0 1 1 0v3h1.5a.5.5 0 0 1 0 1H12v3a.5.5 0 0 1-1 0z"/>
+                        </svg>
+                    </div>
+                    <h1 class="nav-title">
+                        <a href="index.html" class="nav-link" data-testid="link-home">Blacklist Manager</a>
+                    </h1>
+                </div>
+                
+                <button 
+                    id="theme-toggle" 
+                    class="theme-toggle"
+                    aria-label="Toggle theme"
+                    data-testid="button-theme-toggle"
+                >
+                    <svg id="theme-icon" class="theme-icon" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Server Header -->
+        <section class="server-header" id="server-header" data-testid="section-server-header">
+            <!-- Server info will be dynamically loaded here -->
+        </section>
+
+        <!-- Search and Filter Bar -->
+        <section class="search-section">
+            <div class="container">
+                <div class="search-card glass">
+                    <div class="search-grid">
+                        <div class="search-input-container">
+                            <input 
+                                type="text" 
+                                id="search-input"
+                                placeholder="Search by username or ID..." 
+                                class="search-input"
+                                data-testid="input-search"
+                            >
+                        </div>
+                        <select 
+                            id="status-filter" 
+                            class="filter-select"
+                            data-testid="select-status-filter"
+                        >
+                            <option value="">All Statuses</option>
+                            <option value="banned">Banned</option>
+                            <option value="warned">Warned</option>
+                            <option value="muted">Muted</option>
+                        </select>
+                        <select 
+                            id="moderator-filter" 
+                            class="filter-select"
+                            data-testid="select-moderator-filter"
+                        >
+                            <option value="">All Moderators</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Tiles Grid -->
+        <section class="users-section">
+            <div class="container">
+                <div class="users-grid" id="users-grid" data-testid="grid-users">
+                    <!-- User tiles will be dynamically loaded here -->
+                </div>
+                
+                <!-- Empty State -->
+                <div class="empty-state" id="empty-state" style="display: none;" data-testid="section-empty-state">
+                    <div class="empty-state-content">
+                        <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+                        </svg>
+                        <h3 class="empty-state-title">No users found</h3>
+                        <p class="empty-state-description">Try adjusting your search or filter criteria</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- User Detail Modal -->
+    <div id="user-modal" class="modal-overlay" style="display: none;" data-testid="modal-user-detail">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="user-info">
+                    <div class="user-avatar" id="modal-avatar" data-testid="img-user-avatar">
+                        👤
+                    </div>
+                    <div class="user-details">
+                        <h3 class="user-name" id="modal-username" data-testid="text-user-name"></h3>
+                        <p class="user-id" id="modal-user-id" data-testid="text-user-id"></p>
+                        <span class="status-badge" id="modal-status" data-testid="badge-user-status"></span>
+                    </div>
+                </div>
+                <button class="modal-close" id="close-user-modal" aria-label="Close modal" data-testid="button-close-modal">
+                    <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4 class="section-title">Reason</h4>
+                    <p class="section-content" id="modal-reason" data-testid="text-user-reason"></p>
+                </div>
+                
+                <div class="modal-grid">
+                    <div class="modal-section">
+                        <h4 class="section-title">Moderator</h4>
+                        <p class="section-content" id="modal-moderator" data-testid="text-user-moderator"></p>
+                    </div>
+                    <div class="modal-section">
+                        <h4 class="section-title">Date</h4>
+                        <p class="section-content" id="modal-date" data-testid="text-user-date"></p>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h4 class="section-title">Evidence</h4>
+                    <div class="proof-grid" id="proof-grid" data-testid="grid-proof">
+                        <!-- Proof images will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proof Lightbox -->
+    <div id="proof-lightbox" class="lightbox-overlay" style="display: none;" data-testid="lightbox-proof">
+        <div class="lightbox-content">
+            <!-- Navigation Controls -->
+            <button class="lightbox-close" id="close-lightbox" aria-label="Close lightbox" data-testid="button-close-lightbox">
+                <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <button class="lightbox-nav lightbox-prev" id="prev-proof" aria-label="Previous image" data-testid="button-prev-proof">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            
+            <button class="lightbox-nav lightbox-next" id="next-proof" aria-label="Next image" data-testid="button-next-proof">
+                <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            
+            <!-- Zoom Controls -->
+            <div class="lightbox-controls">
+                <button class="control-btn" id="zoom-out" aria-label="Zoom out" data-testid="button-zoom-out">
+                    <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"></path>
+                    </svg>
+                </button>
+                <button class="control-btn" id="zoom-in" aria-label="Zoom in" data-testid="button-zoom-in">
+                    <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                    </svg>
+                </button>
+                <button class="control-btn" id="download-proof" aria-label="Download image" data-testid="button-download-proof">
+                    <svg class="control-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Image Container -->
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" class="lightbox-image" alt="Proof evidence" data-testid="img-proof">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/server.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/lightbox.js"></script>
+</body>
+</html>

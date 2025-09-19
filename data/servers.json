@@ -1,0 +1,18 @@
+{
+  "fluffy-cafe": {
+    "name": "Fluffy Cafe",
+    "invite": "https://discord.gg/fluffy",
+    "creator": "Chessz__",
+    "accent": "#a6e3ff",
+    "background": "linear-gradient(135deg, #141414, #1e1e2f)",
+    "users": ["realq_1"]
+  },
+  "humble-cafe": {
+    "name": "Humble Cafe",
+    "invite": "https://discord.gg/humble",
+    "creator": "Chessz__",
+    "accent": "#ffcc80",
+    "background": "linear-gradient(135deg, #1f1a10, #332d20)",
+    "users": ["someuser"]
+  }
+}
