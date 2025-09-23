@@ -1,0 +1,10 @@
+{
+  "username": "HCR-RAIDS",
+  "userId": "0000",
+  "status": "banned",
+  "shortReason": "All users banned for raiding",
+  "longReason": "Here in proofs all users that got banned for raiding will be stored togheter with their user id. Information: about proof 1: the user id as stored in the same order as user",
+  "moderator": "0000",
+  "date": "0000-00-00",
+  "proof": ["proof1.png"]
+}

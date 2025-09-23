@@ -7,6 +7,7 @@ server = Server()
 server.watch('*.html')
 server.watch('*.css')
 server.watch('*.js')
+server.watch('js/*.js')
 
 # Start the server on port 8000
 server.serve(root='.', port=8000)

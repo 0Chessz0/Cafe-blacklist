@@ -1,7 +1,7 @@
 {
   "username": "someuser",
   "userId": "9876543210987654321",
-  "status": "warned",
+  "status": "unbanned",
   "shortReason": "Inappropriate behavior",
   "longReason": "User engaged in inappropriate behavior in general chat, including harassment of other members and posting offensive content.",
   "moderator": "Ches",

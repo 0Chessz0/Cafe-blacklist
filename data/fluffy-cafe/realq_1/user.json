@@ -1,10 +1,10 @@
 {
-  "username": "realq_1",
-  "userId": "1184836157972938800",
-  "status": "unbanned",
-  "shortReason": "Rejoin spam",
-  "longReason": "After being muted, this user rejoined repeatedly and spam-pinged many people.",
+  "username": "someuser",
+  "userId": "9876543210987654321",
+  "status": "warned",
+  "shortReason": "Inappropriate behavior",
+  "longReason": "User engaged in inappropriate behavior in general chat, including harassment of other members and posting offensive content.",
   "moderator": "Ches",
-  "date": "2025-09-18",
-  "proof": ["proof1.png"]
+  "date": "2025-09-15",
+  "proof": ["proof1.png", "proof2.png"]
 }

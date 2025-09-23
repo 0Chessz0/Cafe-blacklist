@@ -15,6 +15,14 @@
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
+    <style>
+        .logo-img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -23,12 +31,10 @@
             <div class="nav-content">
                 <div class="nav-brand">
                     <div class="logo">
-                        <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 13.5v-3H9.5a.5.5 0 0 1 0-1H11V8.5a.5.5 0 0 1 1 0v3h1.5a.5.5 0 0 1 0 1H12v3a.5.5 0 0 1-1 0z"/>
-                        </svg>
+                        <img src="/blacklistlogo.png" alt="Blacklist Logo" class="logo-img" />
                     </div>
                     <h1 class="nav-title">
-                        <a href="index.html" class="nav-link" data-testid="link-home">Blacklist Manager</a>
+                        <a href="index.html" class="nav-link" data-testid="link-home">Cafe Blacklist</a>
                     </h1>
                 </div>
                 
@@ -74,7 +80,7 @@
                         >
                             <option value="">All Statuses</option>
                             <option value="banned">Banned</option>
-                            <option value="warned">Unbanned</option>
+                            <option value="unbanned">Unbanned</option>
                         </select>
                         <select 
                             id="moderator-filter" 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blacklist Management System</title>
+    <title>Cafe Blacklist</title>
     <meta name="description" content="Comprehensive user management and moderation tracking across Discord communities">
     
     <!-- Fonts -->
@@ -17,16 +17,13 @@
     <link rel="stylesheet" href="css/components.css">
     
     <!-- Service Worker -->
-    <!--
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js', { scope: './' });
-        });
-    }
-</script>
--->
-
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js', { scope: './' });
+            });
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation Header -->
@@ -35,11 +32,10 @@
             <div class="nav-content">
                 <div class="nav-brand">
                     <div class="logo">
-                        <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 13.5v-3H9.5a.5.5 0 0 1 0-1H11V8.5a.5.5 0 0 1 1 0v3h1.5a.5.5 0 0 1 0 1H12v3a.5.5 0 0 1-1 0z"/>
-                        </svg>
+                        <!-- Replaced inline SVG with PNG logo -->
+                        <img src="/blacklistlogo.png" alt="Blacklist Logo" class="logo-icon">
                     </div>
-                    <h1 class="nav-title">Blacklist Manager</h1>
+                    <h1 class="nav-title">Cafe Blacklist</h1>
                 </div>
                 
                 <button 
@@ -63,10 +59,10 @@
             <div class="container">
                 <div class="hero-content">
                     <h2 class="hero-title" data-testid="text-hero-title">
-                        Server Blacklists
+                        Cafe Blacklist
                     </h2>
                     <p class="hero-description" data-testid="text-hero-description">
-                        Comprehensive user management and moderation tracking across Discord communities
+                        All banned users of the servers from Chessz__
                     </p>
                 </div>
                 

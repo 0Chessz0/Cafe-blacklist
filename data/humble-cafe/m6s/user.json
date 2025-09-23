@@ -1,0 +1,10 @@
+{
+  "username": "m6s",
+  "userId": "254284026779533312",
+  "status": "banned",
+  "shortReason": "Typical scam to spread virus",
+  "longReason": "User joined the server then continued to send Connor (Komconnor.) messages about wanted to be friends with him and him needing someone to play a game with, then a link got sent to a game with a site that looks decently legit. After some inspection of the files that run the game I (Chessz__) have come to the conclusion its a stealer and a spyware program. To inverstigate this I used virustotal (https://www.virustotal.com/gui/home/upload) and Triage (https://tria.ge/dashboard)",
+  "moderator": "Ches",
+  "date": "2025-08-18",
+  "proof": ["proof1.png", "proof2.png", "proof3.png", "proof4.png", "proof5.png"]
+}

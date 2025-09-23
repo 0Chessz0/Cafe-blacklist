@@ -317,6 +317,7 @@
 }
 
 /* Status badges */
+/* Status badges */
 .status-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -331,19 +332,15 @@
 }
 
 .status-banned {
-    background: var(--neon-red);
+    background: var(--neon-red); /* keep your existing red */
     color: white;
 }
 
-.status-warned {
-    background: var(--neon-orange);
+.status-unbanned {
+    background: var(--neon-green); /* add a green color in your variables or use #4caf50 */
     color: white;
 }
 
-.status-muted {
-    background: var(--neon-purple);
-    color: white;
-}
 
 /* Modals */
 .modal-overlay {
