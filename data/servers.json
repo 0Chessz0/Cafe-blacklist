@@ -7,7 +7,9 @@
     "background": "linear-gradient(135deg, #141414, #1e1e2f)",
     "emoji": "💘",
     "description": "Pairing Server - established at 07 / 08 / 25",
-    "users": ["someuser"]
+    "users": [
+    "breadkat",
+  ]
   },
   "humble-cafe": {
     "name": "Humble Cafe",
