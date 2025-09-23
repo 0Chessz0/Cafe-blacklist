@@ -4,7 +4,7 @@
   "status": "banned",
   "shortReason": "Targeted slurs",
   "longReason": "The user briefly joined the server and engaged in highly targeted harassment, directing slurs at specific individuals.",
-  "moderator": "Malware",
+  "moderator": "sam",
   "date": "2025-03-18",
   "proof": ["proof1.png"]
 }
