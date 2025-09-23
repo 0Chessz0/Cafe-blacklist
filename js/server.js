@@ -96,38 +96,38 @@ class ServerManager {
     }
     
     async loadServerData(serverName) {
-        this.users = [];
-        const server = this.servers[serverName];
-        
-        const pageTitleEl = document.getElementById('page-title');
-        if (pageTitleEl) pageTitleEl.textContent = `${server.name} - Blacklist`;
-        
-        for (const username of server.users) {
-            try {
-                const response = await fetch(`data/${serverName}/${username}/user.json?cacheBust=${Date.now()}`);
-                const userData = await response.json();
-                
-                // Add pfp path
-                userData.pfp = `data/${serverName}/${username}/pfp.png`;
-                
-                // Map proof filenames to full paths
-                if (Array.isArray(userData.proof)) {
-                    userData.proof = userData.proof.map((file) => `data/${serverName}/${username}/proof/${file}`);
-                } else {
-                    userData.proof = [];
-                }
+    this.users = [];
+    const server = this.servers[serverName];
 
-                // Normalize status to lowercase 'banned' / 'unbanned'
-                userData.status = (userData.status && String(userData.status).toLowerCase() === 'banned') ? 'banned' : 'unbanned';
-                
-                this.users.push(userData);
-            } catch (error) {
-                console.error(`Failed to load user data for ${username}:`, error);
+    const pageTitleEl = document.getElementById('page-title');
+    if (pageTitleEl) pageTitleEl.textContent = `${server.name} - Blacklist`;
+
+    const userPromises = server.users.map(async (username) => {
+        try {
+            const response = await fetch(`data/${serverName}/${username}/user.json?cacheBust=${Date.now()}`);
+            const userData = await response.json();
+
+            userData.pfp = `data/${serverName}/${username}/pfp.png`;
+
+            if (Array.isArray(userData.proof)) {
+                userData.proof = userData.proof.map((file) => `data/${serverName}/${username}/proof/${file}`);
+            } else {
+                userData.proof = [];
             }
+
+            userData.status = (userData.status && String(userData.status).toLowerCase() === 'banned') ? 'banned' : 'unbanned';
+            return userData;
+        } catch (error) {
+            console.error(`Failed to load user data for ${username}:`, error);
+            return null; // skip failed users
         }
-        
-        this.filteredUsers = [...this.users];
-    }
+    });
+
+    // Fetch all users concurrently
+    this.users = (await Promise.all(userPromises)).filter(u => u !== null);
+    this.filteredUsers = [...this.users];
+}
+
     
     renderServerHeader() {
         const serverHeader = document.getElementById('server-header');
